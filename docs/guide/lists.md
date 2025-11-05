@@ -493,4 +493,4 @@ fun ArticleCard(article: Article, onClick: () -> Unit) {
 ## 次のステップ
 
 - [ナビゲーション](/guide/navigation) - 画面遷移を学ぶ
-- [実践例: ニュースアプリ](/examples/news-app) - リストを使ったアプリ
+- [実践例: TODOアプリ](/examples/todo-app) - リストを使った実践例

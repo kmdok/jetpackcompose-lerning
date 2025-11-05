@@ -488,6 +488,6 @@ _data.update { "new value" }  // アトミック更新
 
 ## 次のステップ
 
-- [実践例: TODOアプリ (Flow版)](/examples/todo-app-flow)
-- [実践例: TODOアプリ (LiveData版)](/examples/todo-app-livedata)
+- [実践例: TODOアプリ](/examples/todo-app) - StateFlowを使った実践例
 - [LaunchedEffect](/guide/launched-effect) - 副作用の処理
+- [State管理](/guide/state-management) - 状態管理を復習

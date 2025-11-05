@@ -437,5 +437,5 @@ class TodoViewModel(private val todoDao: TodoDao) : ViewModel() {
 
 ## 次のステップ
 
-- [API連携](/examples/api-fetching) - Retrofitを使ったAPI呼び出し
 - [Navigation](/guide/navigation) - 複数画面への対応
+- [State管理](/guide/state-management) - 状態管理を復習

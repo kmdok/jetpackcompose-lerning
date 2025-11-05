@@ -142,4 +142,5 @@ Column {
 
 ## 次のステップ
 
-- [実践例: フォームバリデーション](/examples/form-validation)
+- [State管理](/guide/state-management) - 状態管理を学ぶ
+- [実践例: TODOアプリ](/examples/todo-app) - 実践的なフォーム例

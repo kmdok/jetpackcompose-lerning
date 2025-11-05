@@ -463,4 +463,5 @@ navController.navigate("home") {
 ## 次のステップ
 
 - [副作用とライフサイクル](/guide/launched-effect) - LaunchedEffectを学ぶ
-- [実践例: マルチスクリーンアプリ](/examples/multi-screen-app) - ナビゲーションを使った実践
+- [ナビゲーションパラメータ](/guide/navigation-params) - パラメータの詳細
+- [実践例: TODOアプリ](/examples/todo-app) - 実践的なアプリ例

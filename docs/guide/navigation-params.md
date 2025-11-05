@@ -86,5 +86,5 @@ NavHost(navController = navController, startDestination = Home) {
 
 ## 次のステップ
 
-- [Navigation](/guide/navigation)
-- [実践例: マルチスクリーンアプリ](/examples/multi-screen-app)
+- [Navigation](/guide/navigation) - ナビゲーションの基本
+- [State管理](/guide/state-management) - 状態管理を学ぶ
