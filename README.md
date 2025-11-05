@@ -4,7 +4,9 @@ Flutter/React経験者向けのJetpack ComposeとKotlinの学習サイトです�
 
 ## 🌐 サイトURL
 
-https://kmdok.github.io/jetpackcompose-lerning/
+**👉 [https://kmdok.github.io/jetpackcompose-lerning/](https://kmdok.github.io/jetpackcompose-lerning/) 👈**
+
+[![Deploy VitePress site to Pages](https://github.com/kmdok/jetpackcompose-lerning/actions/workflows/deploy.yml/badge.svg)](https://github.com/kmdok/jetpackcompose-lerning/actions/workflows/deploy.yml)
 
 ## 📚 学習内容
 
