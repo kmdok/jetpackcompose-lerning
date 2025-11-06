@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { AlertCircle, CheckCircle2, Code2, Database, GitBranch, Loader2, Zap } from 'lucide-react'
+import { AlertCircle, CheckCircle2, Code2, Database, GitBranch, Zap } from 'lucide-react'
 
 export default function StateManagement() {
   return (

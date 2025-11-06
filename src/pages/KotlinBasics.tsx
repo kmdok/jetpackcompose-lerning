@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { AlertCircle, CheckCircle2, Zap, Layers, GitBranch, Play } from 'lucide-react'
+import { CheckCircle2, Zap, GitBranch, Play } from 'lucide-react'
 
 export default function KotlinBasics() {
   return (
