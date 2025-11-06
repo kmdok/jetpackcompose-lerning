@@ -36,6 +36,8 @@ export default defineConfig({
         items: [
           { text: 'Composableとは', link: '/guide/composables' },
           { text: 'State管理', link: '/guide/state-management' },
+          { text: 'Kotlin Flow 完全ガイド', link: '/guide/kotlin-flow' },
+          { text: 'LiveData vs Flow 比較', link: '/guide/livedata-vs-flow' },
           { text: 'レイアウト基礎', link: '/guide/layouts' },
           { text: 'Modifierの使い方', link: '/guide/modifiers' }
         ]
