@@ -1,10 +1,10 @@
 # Jetpack Compose & Kotlin 学習サイト
 
+**👉 [https://kmdok.github.io/jetpackcompose-lerning/](https://kmdok.github.io/jetpackcompose-lerning/) 👈**
+
+[![Deploy React site to Pages](https://github.com/kmdok/jetpackcompose-lerning/actions/workflows/deploy.yml/badge.svg)](https://github.com/kmdok/jetpackcompose-lerning/actions/workflows/deploy.yml)
+
 Flutter/React経験者向けのJetpack ComposeとKotlinの学習サイトです。
-
-## 🌐 サイトURL
-
-https://kmdok.github.io/jetpackcompose-lerning/
 
 ## 📚 学習内容
 
@@ -43,8 +43,6 @@ https://kmdok.github.io/jetpackcompose-lerning/
 
 ### 実践例
 - TODOアプリ（StateFlow版）
-- APIデータ取得
-- フォームバリデーション
 
 ## 🚀 ローカル開発
 
@@ -59,28 +57,33 @@ https://kmdok.github.io/jetpackcompose-lerning/
 npm install
 
 # 開発サーバー起動
-npm run docs:dev
+npm run dev
 
 # ビルド
-npm run docs:build
+npm run build
 
 # ビルド結果のプレビュー
-npm run docs:preview
+npm run preview
 ```
 
 ## 📖 特徴
 
-- Flutter/Reactとの対比で学べる
-- 日本語で詳しく解説
-- 実践的なコード例が豊富
-- Android公式ドキュメント準拠
-- LiveDataとFlowの両方に対応
-- 重要な概念・用語を丁寧に説明
-- 公式ドキュメントへのリンク
+- **Flutter/Reactとの対比**: すでに宣言的UIフレームワークの経験がある方向けに最適化
+- **日本語で詳しく解説**: わかりやすい日本語での説明
+- **実践的なコード例**: TODOアプリなど実際に使える例が豊富
+- **モダンな技術スタック**: React + TypeScript + Tailwind CSS + shadcn/ui
+- **モバイルフレンドリー**: スマホでも快適に閲覧可能なレスポンシブデザイン
+- **公式ドキュメントへのリンク**: Android公式ドキュメントへの参照
 
-## 🤝 貢献
+## 🛠 技術スタック
 
-プルリクエストを歓迎します！
+- React 18
+- TypeScript
+- Vite
+- React Router
+- Tailwind CSS
+- shadcn/ui
+- Lucide Icons
 
 ## 📄 ライセンス
 
