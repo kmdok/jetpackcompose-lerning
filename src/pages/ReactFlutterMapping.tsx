@@ -544,10 +544,10 @@ fun UserList(viewModel: UserViewModel = viewModel()) {
 
       {/* Navigation */}
       <section className="flex justify-between items-center py-8 border-t">
-        <Link to="/comparison">
+        <Link to="/composables">
           <Button variant="outline" className="flex items-center gap-2">
             <ArrowRight className="w-4 h-4 rotate-180" />
-            前のページ: 詳細比較
+            前のページ: Composable詳細
           </Button>
         </Link>
         <Link to="/kotlin-basics">

@@ -12,14 +12,16 @@ export default function Layout({ children }: LayoutProps) {
 
   const navigation = [
     { name: 'ホーム', path: '/', icon: Home },
-    { name: 'Flutter/React比較', path: '/comparison', icon: Code },
+    { name: 'React/Flutter比較', path: '/react-flutter-mapping', icon: Code },
+    { name: 'アーキテクチャ比較', path: '/comparison', icon: Code },
     { name: 'Kotlin基礎', path: '/kotlin-basics', icon: Code },
     { name: 'Composable', path: '/composables', icon: Smartphone },
     { name: 'State管理', path: '/state-management', icon: Smartphone },
+    { name: 'DI', path: '/dependency-injection', icon: Smartphone },
     { name: 'レイアウト', path: '/layouts', icon: Smartphone },
     { name: 'リスト', path: '/lists', icon: Smartphone },
     { name: 'ナビゲーション', path: '/navigation', icon: Smartphone },
-    { name: 'TODOアプリ', path: '/todo-app', icon: Smartphone },
+    { name: '実践: TODOアプリ', path: '/todo-app', icon: Smartphone },
   ]
 
   return (
@@ -104,15 +106,6 @@ export default function Layout({ children }: LayoutProps) {
         {children}
       </main>
 
-      {/* Footer */}
-      <footer className="border-t bg-white/50 backdrop-blur-sm mt-20">
-        <div className="container mx-auto px-4 py-6">
-          <div className="text-center text-sm text-gray-600">
-            <p>Flutter/React経験者向け Jetpack Compose & Kotlin 学習サイト</p>
-            <p className="mt-2">© 2024 Jetpack Compose Learning</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

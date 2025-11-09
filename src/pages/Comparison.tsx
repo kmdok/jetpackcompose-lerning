@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { CheckCircle2, Code2, Layers, Zap, Database, Box } from 'lucide-react'
+import { Code2, Layers, Zap, Database, Box } from 'lucide-react'
 import CodeBlock from '@/components/CodeBlock'
 
 export default function Comparison() {
@@ -31,10 +31,6 @@ export default function Comparison() {
         <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-android-green to-android-blue bg-clip-text text-transparent">
           Flutter/React との比較
         </h1>
-        <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-          実際のプロジェクトで使われるアーキテクチャパターン（ViewModel + LiveData/Flow + Hilt）を前提に、
-          React/Flutterとの対応関係を解説します。
-        </p>
       </div>
 
       {/* Architecture Cards */}
@@ -295,8 +291,8 @@ fun UserScreen(
           <div>
             <h4 className="font-medium text-blue-900">🔄 React/Flutter開発者向け</h4>
             <p className="text-sm text-blue-700 mb-2">既存のスキルを活かした効率的学習</p>
-            <a href="/react-flutter-mapping" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
-              📋 React/Flutter → Compose 概念マッピング表
+            <a href="/composables" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+              📋 Composable 詳細ガイド
             </a>
           </div>
           <div>
@@ -309,47 +305,6 @@ fun UserScreen(
         </CardContent>
       </Card>
 
-      {/* Learning Path */}
-      <Card className="border-2 border-android-green/20 bg-gradient-to-br from-android-green/5 to-android-blue/5">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5" />
-            学習のロードマップ
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-3">
-            <div className="flex gap-3">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">1</div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-sm">Kotlin基礎</h3>
-                <p className="text-xs text-gray-600">null安全性、Coroutine、データクラスを理解</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">2</div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-sm">ViewModel + StateFlow/LiveData</h3>
-                <p className="text-xs text-gray-600">状態管理の基本パターンをマスター</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">3</div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-sm">Hilt (DI)</h3>
-                <p className="text-xs text-gray-600">依存性注入でテストしやすいコードを書く</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">4</div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-sm">Composable UI</h3>
-                <p className="text-xs text-gray-600">宣言的UIの構築（React/Flutter経験が活きる）</p>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   )
 }

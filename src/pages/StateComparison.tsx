@@ -589,8 +589,8 @@ fun ContactForm() {
             <div>
               <h4 className="font-medium text-green-900">🔄 概念マッピング</h4>
               <p className="text-sm text-green-700 mb-2">React/Flutter経験者向けの対応表</p>
-              <a href="/react-flutter-mapping" className="text-green-600 hover:text-green-800 underline text-sm font-medium">
-                📋 React/Flutter → Android マッピング
+              <a href="/composables" className="text-green-600 hover:text-green-800 underline text-sm font-medium">
+                📋 Composable 詳細ガイド
               </a>
             </div>
             <div>

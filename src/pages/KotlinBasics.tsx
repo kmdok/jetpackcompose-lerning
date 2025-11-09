@@ -10,10 +10,6 @@ export default function KotlinBasics() {
         <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-kotlin-purple to-pink-500 bg-clip-text text-transparent">
           Kotlin基礎 + Coroutines + Flow
         </h1>
-        <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-          KotlinはGoogleが推奨するAndroid開発の公式言語です。
-          Coroutines と Flow は、非同期処理とリアクティブプログラミングの中核です。
-        </p>
       </div>
 
       {/* Quick Overview */}
@@ -627,8 +623,8 @@ fun UserListScreen(
             </div>
           </div>
           <div className="mt-4">
-            <a href="/react-flutter-mapping" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
-              📋 詳細な概念マッピング表を見る
+            <a href="/composables" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+              📋 Composable詳細ページを見る
             </a>
           </div>
         </CardContent>
