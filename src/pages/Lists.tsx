@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import CodeBlock from '@/components/CodeBlock'
 
 export default function Lists() {
   return (
@@ -12,13 +13,13 @@ export default function Lists() {
           <CardTitle>LazyColumn - 効率的なリスト</CardTitle>
         </CardHeader>
         <CardContent>
-          <pre className="bg-gray-900 text-gray-100 p-3 md:p-4 rounded-lg overflow-x-auto text-xs md:text-sm">
+          <CodeBlock className="text-xs">
 {`LazyColumn {
     items(itemsList) { item ->
         Text(item.name)
     }
 }`}
-          </pre>
+          </CodeBlock>
           <div className="mt-4 bg-blue-50 p-3 md:p-4 rounded-lg">
             <p className="text-sm text-blue-900">
               💡 <strong>比較:</strong><br/>
@@ -35,7 +36,7 @@ export default function Lists() {
           <CardTitle>グリッドレイアウト</CardTitle>
         </CardHeader>
         <CardContent>
-          <pre className="bg-gray-900 text-gray-100 p-3 md:p-4 rounded-lg overflow-x-auto text-xs md:text-sm">
+          <CodeBlock className="text-xs">
 {`LazyVerticalGrid(
     columns = GridCells.Fixed(3)
 ) {
@@ -46,7 +47,7 @@ export default function Lists() {
         )
     }
 }`}
-          </pre>
+          </CodeBlock>
         </CardContent>
       </Card>
     </div>

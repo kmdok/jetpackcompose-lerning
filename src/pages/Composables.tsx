@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import CodeBlock from '@/components/CodeBlock'
 
 export default function Composables() {
   return (
@@ -12,7 +13,7 @@ export default function Composables() {
           <CardTitle>基本構文</CardTitle>
         </CardHeader>
         <CardContent>
-          <pre className="bg-gray-900 text-gray-100 p-3 md:p-4 rounded-lg overflow-x-auto text-xs md:text-sm">
+          <CodeBlock className="text-xs">
 {`@Composable
 fun Greeting(name: String) {
     Text("Hello, $name!")
@@ -23,7 +24,7 @@ fun Greeting(name: String) {
 fun App() {
     Greeting("World")
 }`}
-          </pre>
+          </CodeBlock>
         </CardContent>
       </Card>
 
@@ -35,15 +36,15 @@ fun App() {
           <div className="space-y-3">
             <div className="bg-react-blue/10 p-3 md:p-4 rounded">
               <p className="font-semibold text-react-blue mb-2">⚛️ React</p>
-              <pre className="text-xs md:text-sm">function Greeting(&#123; name &#125;) &#123; ... &#125;</pre>
+              <code className="text-xs md:text-sm">function Greeting(&#123; name &#125;) &#123; ... &#125;</code>
             </div>
             <div className="bg-flutter-blue/10 p-3 md:p-4 rounded">
               <p className="font-semibold text-flutter-blue mb-2">🐦 Flutter</p>
-              <pre className="text-xs md:text-sm">class Greeting extends StatelessWidget &#123; ... &#125;</pre>
+              <code className="text-xs md:text-sm">class Greeting extends StatelessWidget &#123; ... &#125;</code>
             </div>
             <div className="bg-android-green/10 p-3 md:p-4 rounded">
               <p className="font-semibold text-android-green mb-2">🤖 Compose</p>
-              <pre className="text-xs md:text-sm">@Composable fun Greeting(name: String) &#123; ... &#125;</pre>
+              <code className="text-xs md:text-sm">@Composable fun Greeting(name: String) &#123; ... &#125;</code>
             </div>
           </div>
         </CardContent>
@@ -54,7 +55,7 @@ fun App() {
           <CardTitle>基本的なComposable</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <pre className="bg-gray-900 text-gray-100 p-3 md:p-4 rounded-lg overflow-x-auto text-xs md:text-sm">
+          <CodeBlock className="text-xs">
 {`// Text
 Text("Simple text")
 
@@ -68,7 +69,7 @@ Column {
     Text("First")
     Text("Second")
 }`}
-          </pre>
+          </CodeBlock>
         </CardContent>
       </Card>
     </div>

@@ -1,4 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import CodeBlock from '@/components/CodeBlock'
 import { Box, CheckCircle2, Database, Layers, Package, Zap } from 'lucide-react'
 
 export default function TodoApp() {
@@ -56,7 +57,7 @@ export default function TodoApp() {
           <CardDescription>Entity, DAO, Database</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 pt-6">
-          <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+          <CodeBlock className="text-xs">
 {`// Entity (テーブル定義)
 @Entity(tableName = "todos")
 data class TodoEntity(
@@ -121,7 +122,7 @@ object DatabaseModule {
         return database.todoDao()
     }
 }`}
-          </pre>
+          </CodeBlock>
           <div className="bg-blue-50 p-3 rounded-lg">
             <p className="text-xs text-blue-900">
               <strong>💡 Room:</strong> FlowでデータをObserve。DBが更新されると自動的にUIが更新される。
@@ -140,7 +141,7 @@ object DatabaseModule {
           <CardDescription>ViewModelから実装の詳細を隠蔽</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 pt-6">
-          <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+          <CodeBlock className="text-xs">
 {`// Domain Model (UIで使うモデル)
 data class Todo(
     val id: Int,
@@ -232,7 +233,7 @@ abstract class RepositoryModule {
         impl: TodoRepositoryImpl
     ): TodoRepository
 }`}
-          </pre>
+          </CodeBlock>
           <div className="bg-purple-50 p-3 rounded-lg">
             <p className="text-xs text-purple-900">
               <strong>💡 Repository Pattern:</strong> データソース(Room, API等)の実装を隠蔽。テストでモックに差し替え可能。
@@ -251,7 +252,7 @@ abstract class RepositoryModule {
           <CardDescription>UiStateパターンで型安全な状態管理</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 pt-6">
-          <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+          <CodeBlock className="text-xs">
 {`// UiState
 sealed interface TodoListUiState {
     object Loading : TodoListUiState
@@ -347,7 +348,7 @@ class TodoListViewModel @Inject constructor(
         }
     }
 }`}
-          </pre>
+          </CodeBlock>
           <div className="grid md:grid-cols-2 gap-4 text-sm">
             <div className="space-y-2">
               <h4 className="font-semibold flex items-center gap-2">
@@ -387,7 +388,7 @@ class TodoListViewModel @Inject constructor(
           <CardDescription>宣言的UI</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 pt-6">
-          <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+          <CodeBlock className="text-xs">
 {`@Composable
 fun TodoListScreen(
     viewModel: TodoListViewModel = hiltViewModel()
@@ -537,7 +538,7 @@ fun TodoItem(
         }
     }
 }`}
-          </pre>
+          </CodeBlock>
         </CardContent>
       </Card>
 
@@ -553,7 +554,7 @@ fun TodoItem(
               <span className="text-xl">⚛️</span>
               React (Redux Toolkit + React Query)
             </h3>
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// Redux Slice
 const todoSlice = createSlice({
   name: 'todos',
@@ -596,7 +597,7 @@ function TodoList() {
     </div>
   );
 }`}
-            </pre>
+            </CodeBlock>
             <p className="text-xs text-gray-600 mt-2">
               → Compose: <code className="bg-gray-100 px-1 rounded">Room + Repository + ViewModel + StateFlow</code>
             </p>
@@ -608,7 +609,7 @@ function TodoList() {
               <span className="text-xl">🐦</span>
               Flutter (Riverpod + Drift/SQLite)
             </h3>
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// Repository Provider
 final todoRepositoryProvider = Provider<TodoRepository>((ref) {
   return TodoRepositoryImpl(ref.read(databaseProvider));
@@ -656,7 +657,7 @@ class TodoListScreen extends ConsumerWidget {
     );
   }
 }`}
-            </pre>
+            </CodeBlock>
             <p className="text-xs text-gray-600 mt-2">
               → Compose: <code className="bg-gray-100 px-1 rounded">Room + Hilt + ViewModel + StateFlow + sealed interface</code>
             </p>
@@ -719,7 +720,7 @@ class TodoListScreen extends ConsumerWidget {
           <CardTitle>必要な依存関係 (build.gradle.kts)</CardTitle>
         </CardHeader>
         <CardContent>
-          <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+          <CodeBlock className="text-xs">
 {`dependencies {
     // Compose
     implementation("androidx.compose.ui:ui:1.5.4")
@@ -741,7 +742,7 @@ class TodoListScreen extends ConsumerWidget {
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 }`}
-          </pre>
+          </CodeBlock>
         </CardContent>
       </Card>
     </div>

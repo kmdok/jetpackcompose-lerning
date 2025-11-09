@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { AlertCircle, CheckCircle2, Code2, Database, GitBranch, Zap } from 'lucide-react'
+import CodeBlock from '@/components/CodeBlock'
+import { AlertCircle, CheckCircle2, Code2, GitBranch, Zap } from 'lucide-react'
 
 export default function StateManagement() {
   return (
@@ -10,47 +11,19 @@ export default function StateManagement() {
           State管理 (ViewModel + StateFlow/LiveData)
         </h1>
         <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-          実践的なAndroid開発では、ViewModel + StateFlow/LiveData + Hiltを使った状態管理が標準です。
-          rememberは使わず、テスト可能で保守性の高いアーキテクチャを構築します。
+          実践的なAndroid開発での状態管理実装パターンを学習します。
+          ViewModel + StateFlow/LiveDataの具体的な使い方とベストプラクティスを習得しましょう。
         </p>
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <p className="text-sm text-blue-800">
+            💡 <strong>状態管理の選択基準</strong>については、
+            <a href="/state-comparison" className="underline font-medium">LiveData vs Flow vs State比較ページ</a>
+            で詳しく解説しています。
+          </p>
+        </div>
       </div>
 
-      {/* StateFlow vs LiveData Quick Comparison */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <Card className="border-2 border-android-green/30">
-          <CardHeader className="bg-gradient-to-br from-android-green/10 to-android-blue/10">
-            <CardTitle className="flex items-center gap-2 text-lg">
-              <Zap className="w-5 h-5" />
-              StateFlow (推奨)
-            </CardTitle>
-            <CardDescription>Kotlin Coroutine統合</CardDescription>
-          </CardHeader>
-          <CardContent className="pt-4 space-y-2 text-sm">
-            <p>✅ <strong>Coroutine + Flow</strong>との完全統合</p>
-            <p>✅ <strong>初期値必須</strong> (null安全)</p>
-            <p>✅ <strong>map/filter/combine</strong> などの変換が簡単</p>
-            <p>✅ <strong>Google推奨</strong> (2021年以降)</p>
-            <p>📦 <code className="text-xs bg-gray-100 px-1 rounded">kotlinx-coroutines-core</code></p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-2 border-orange-200">
-          <CardHeader className="bg-gradient-to-br from-orange-50 to-orange-100">
-            <CardTitle className="flex items-center gap-2 text-lg">
-              <Database className="w-5 h-5" />
-              LiveData
-            </CardTitle>
-            <CardDescription>Android AAC標準</CardDescription>
-          </CardHeader>
-          <CardContent className="pt-4 space-y-2 text-sm">
-            <p>✅ <strong>ライフサイクル自動対応</strong></p>
-            <p>✅ <strong>シンプル</strong>で理解しやすい</p>
-            <p>⚠️ <strong>Flowとの統合</strong>が弱い</p>
-            <p>⚠️ <strong>変換がやや冗長</strong> (Transformations.*)</p>
-            <p>📦 <code className="text-xs bg-gray-100 px-1 rounded">androidx.lifecycle</code></p>
-          </CardContent>
-        </Card>
-      </div>
+      {/* Implementation Patterns Focus */}
 
       {/* UiState Pattern */}
       <Card className="border-2 border-android-green/20">
@@ -62,7 +35,7 @@ export default function StateManagement() {
           <CardDescription>Loading/Success/Errorを型安全に管理</CardDescription>
         </CardHeader>
         <CardContent className="pt-6 space-y-4">
-          <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+          <CodeBlock className="text-xs">
 {`// UiState定義 (sealed class で型安全に)
 sealed interface UserUiState {
     object Loading : UserUiState
@@ -117,7 +90,7 @@ fun UserScreen(
         }
     }
 }`}
-          </pre>
+          </CodeBlock>
           <div className="bg-blue-50 p-3 rounded-lg">
             <p className="text-xs text-blue-900">
               <strong>💡 ポイント:</strong> sealed interface で状態を型安全に表現。when式で全パターンを網羅的にハンドリング。
@@ -136,7 +109,7 @@ fun UserScreen(
           <CardDescription>複数のFlowを組み合わせた状態管理</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 pt-6">
-          <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+          <CodeBlock className="text-xs">
 {`// Repository
 interface UserRepository {
     fun getUser(id: Int): Flow<User>
@@ -215,7 +188,7 @@ fun UserProfileScreen(
         }
     }
 }`}
-          </pre>
+          </CodeBlock>
           <div className="grid md:grid-cols-2 gap-4 text-sm">
             <div className="space-y-2">
               <h4 className="font-semibold flex items-center gap-2">
@@ -255,7 +228,7 @@ fun UserProfileScreen(
           <CardDescription>シンプルな状態管理</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 pt-6">
-          <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+          <CodeBlock className="text-xs">
 {`// ViewModel
 @HiltViewModel
 class TaskListViewModel @Inject constructor(
@@ -323,7 +296,7 @@ fun TaskListScreen(
         }
     }
 }`}
-          </pre>
+          </CodeBlock>
           <div className="bg-orange-50 p-3 rounded-lg">
             <p className="text-xs text-orange-900">
               <strong>💡 LiveData vs StateFlow:</strong> LiveDataはシンプルですが、Flowの変換機能が弱いです。
@@ -343,7 +316,7 @@ fun TaskListScreen(
           <CardDescription>初回ロード、画面遷移時の処理</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 pt-6">
-          <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+          <CodeBlock className="text-xs">
 {`// ViewModel
 @HiltViewModel
 class ProductDetailViewModel @Inject constructor(
@@ -389,7 +362,7 @@ fun ProductDetailScreen(
         }
     }
 }`}
-          </pre>
+          </CodeBlock>
           <div className="space-y-2 text-sm">
             <h4 className="font-semibold">LaunchedEffect のキー</h4>
             <ul className="text-xs text-gray-700 space-y-1">
@@ -413,7 +386,7 @@ fun ProductDetailScreen(
               <span className="text-xl">⚛️</span>
               React (useState + useEffect + Redux)
             </h3>
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// Redux Store
 const userSlice = createSlice({
   name: 'user',
@@ -445,7 +418,7 @@ function UserProfile({ userId }) {
   if (loading) return <Spinner />;
   return <div>{user?.name}</div>;
 }`}
-            </pre>
+            </CodeBlock>
             <p className="text-xs text-gray-600 mt-2">
               → Compose: <code className="bg-gray-100 px-1 rounded">ViewModel + StateFlow + LaunchedEffect</code>
             </p>
@@ -457,7 +430,7 @@ function UserProfile({ userId }) {
               <span className="text-xl">🐦</span>
               Flutter (Riverpod + AsyncNotifier)
             </h3>
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// Provider (Riverpod)
 final userProvider = AsyncNotifierProvider<UserNotifier, User?>(() {
   return UserNotifier();
@@ -490,7 +463,7 @@ class UserProfile extends ConsumerWidget {
     );
   }
 }`}
-            </pre>
+            </CodeBlock>
             <p className="text-xs text-gray-600 mt-2">
               → Compose: <code className="bg-gray-100 px-1 rounded">ViewModel + StateFlow + sealed interface</code>
             </p>

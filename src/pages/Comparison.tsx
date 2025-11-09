@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { CheckCircle2, Code2, Layers, Zap, Database, Box } from 'lucide-react'
+import CodeBlock from '@/components/CodeBlock'
 
 export default function Comparison() {
   const architectureComparison = [
@@ -55,9 +56,9 @@ export default function Comparison() {
                     <div className="w-3 h-3 rounded-full bg-react-blue"></div>
                     <span className="font-semibold text-react-blue text-sm">React</span>
                   </div>
-                  <code className="block text-xs bg-gray-900 text-gray-100 p-2 rounded break-words">
+                  <CodeBlock className="text-xs break-words">
                     {item.react.code}
-                  </code>
+                  </CodeBlock>
                   <p className="text-xs text-gray-600">{item.react.desc}</p>
                 </div>
 
@@ -66,9 +67,9 @@ export default function Comparison() {
                     <div className="w-3 h-3 rounded-full bg-flutter-blue"></div>
                     <span className="font-semibold text-flutter-blue text-sm">Flutter</span>
                   </div>
-                  <code className="block text-xs bg-gray-900 text-gray-100 p-2 rounded break-words">
+                  <CodeBlock className="text-xs break-words">
                     {item.flutter.code}
-                  </code>
+                  </CodeBlock>
                   <p className="text-xs text-gray-600">{item.flutter.desc}</p>
                 </div>
 
@@ -77,9 +78,9 @@ export default function Comparison() {
                     <div className="w-3 h-3 rounded-full bg-android-green"></div>
                     <span className="font-semibold text-android-green text-sm">Compose</span>
                   </div>
-                  <code className="block text-xs bg-gray-900 text-gray-100 p-2 rounded break-words">
+                  <CodeBlock className="text-xs break-words">
                     {item.compose.code}
-                  </code>
+                  </CodeBlock>
                   <p className="text-xs text-gray-600">{item.compose.desc}</p>
                 </div>
               </div>
@@ -142,7 +143,7 @@ export default function Comparison() {
               <CardDescription>従来の方法（シンプル）</CardDescription>
             </CardHeader>
             <CardContent className="pt-4 space-y-3">
-              <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+              <CodeBlock className="text-xs">
 {`// ViewModel
 class UserViewModel @Inject constructor(
     private val repository: UserRepository
@@ -169,7 +170,7 @@ fun UserScreen(
         Text("Name: \${it.name}")
     }
 }`}
-              </pre>
+              </CodeBlock>
               <div className="space-y-1 text-xs text-gray-600">
                 <p>✅ シンプルで理解しやすい</p>
                 <p>✅ ライフサイクル自動対応</p>
@@ -185,7 +186,7 @@ fun UserScreen(
               <CardDescription>モダンで柔軟</CardDescription>
             </CardHeader>
             <CardContent className="pt-4 space-y-3">
-              <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+              <CodeBlock className="text-xs">
 {`// ViewModel
 class UserViewModel @Inject constructor(
     private val repository: UserRepository
@@ -212,7 +213,7 @@ fun UserScreen(
         Text("Name: \${it.name}")
     }
 }`}
-              </pre>
+              </CodeBlock>
               <div className="space-y-1 text-xs text-gray-600">
                 <p>✅ Kotlin Coroutineと統合</p>
                 <p>✅ より柔軟な変換/結合</p>
@@ -230,7 +231,7 @@ fun UserScreen(
           <CardDescription>実際のプロジェクト構成</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <pre className="bg-gray-900 text-gray-100 p-3 md:p-4 rounded-lg overflow-x-auto text-xs">
+          <CodeBlock className="text-xs">
 {`// Application
 @HiltAndroidApp
 class MyApplication : Application()
@@ -275,7 +276,7 @@ fun UserScreen(
 ) {
     // ViewModelはHiltから自動で注入される
 }`}
-          </pre>
+          </CodeBlock>
           <div className="mt-4 space-y-2 text-sm text-gray-700">
             <p><strong>@HiltAndroidApp</strong>: Application クラスに付与</p>
             <p><strong>@AndroidEntryPoint</strong>: Activity/Fragment に付与</p>
@@ -285,63 +286,25 @@ fun UserScreen(
         </CardContent>
       </Card>
 
-      {/* Comparison with React/Flutter */}
-      <Card>
+      {/* Related Resources */}
+      <Card className="bg-blue-50 border-blue-200">
         <CardHeader>
-          <CardTitle>React/Flutterとの対応</CardTitle>
+          <CardTitle className="text-blue-800">関連リソース</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
-          {/* React */}
+        <CardContent className="space-y-3">
           <div>
-            <h3 className="font-semibold text-react-blue mb-3 flex items-center gap-2">
-              <span className="text-xl">⚛️</span>
-              React + Redux/Context
-            </h3>
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
-{`// Redux Store
-const store = createStore(rootReducer);
-
-// Component
-function UserProfile({ userId }) {
-  const dispatch = useDispatch();
-  const user = useSelector(state => state.user);
-
-  useEffect(() => {
-    dispatch(fetchUser(userId));
-  }, [userId]);
-
-  return <div>{user?.name}</div>;
-}`}
-            </pre>
-            <p className="text-xs text-gray-600 mt-2">
-              → Compose: <code className="bg-gray-100 px-1 rounded">ViewModel + StateFlow</code>
-            </p>
+            <h4 className="font-medium text-blue-900">🔄 React/Flutter開発者向け</h4>
+            <p className="text-sm text-blue-700 mb-2">既存のスキルを活かした効率的学習</p>
+            <a href="/react-flutter-mapping" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+              📋 React/Flutter → Compose 概念マッピング表
+            </a>
           </div>
-
-          {/* Flutter */}
           <div>
-            <h3 className="font-semibold text-flutter-blue mb-3 flex items-center gap-2">
-              <span className="text-xl">🐦</span>
-              Flutter + Riverpod
-            </h3>
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
-{`// Provider
-final userProvider = StateNotifierProvider<UserNotifier, User?>((ref) {
-  return UserNotifier(ref.read(repositoryProvider));
-});
-
-// Widget
-class UserProfile extends ConsumerWidget {
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(userProvider);
-    return Text(user?.name ?? '');
-  }
-}`}
-            </pre>
-            <p className="text-xs text-gray-600 mt-2">
-              → Compose: <code className="bg-gray-100 px-1 rounded">ViewModel + StateFlow + Hilt</code>
-            </p>
+            <h4 className="font-medium text-blue-900">⚖️ 状態管理の選択</h4>
+            <p className="text-sm text-blue-700 mb-2">LiveData vs Flow vs Compose State の使い分け</p>
+            <a href="/state-comparison" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+              📊 状態管理技術比較ページ
+            </a>
           </div>
         </CardContent>
       </Card>

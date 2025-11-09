@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import CodeBlock from '@/components/CodeBlock'
 
 export default function Navigation() {
   return (
@@ -12,7 +13,7 @@ export default function Navigation() {
           <CardTitle>基本的な使い方</CardTitle>
         </CardHeader>
         <CardContent>
-          <pre className="bg-gray-900 text-gray-100 p-3 md:p-4 rounded-lg overflow-x-auto text-xs md:text-sm">
+          <CodeBlock className="text-xs">
 {`val navController = rememberNavController()
 
 NavHost(
@@ -30,7 +31,7 @@ NavHost(
         DetailScreen()
     }
 }`}
-          </pre>
+          </CodeBlock>
         </CardContent>
       </Card>
 
@@ -39,7 +40,7 @@ NavHost(
           <CardTitle>パラメータの渡し方</CardTitle>
         </CardHeader>
         <CardContent>
-          <pre className="bg-gray-900 text-gray-100 p-3 md:p-4 rounded-lg overflow-x-auto text-xs md:text-sm">
+          <CodeBlock className="text-xs">
 {`composable(
     route = "user/{userId}",
     arguments = listOf(
@@ -55,7 +56,7 @@ NavHost(
 
 // 遷移
 navController.navigate("user/\${userId}")`}
-          </pre>
+          </CodeBlock>
         </CardContent>
       </Card>
     </div>

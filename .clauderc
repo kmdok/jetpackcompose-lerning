@@ -1,0 +1,42 @@
+# .clauderc - Development Environment Configuration
+
+# Default commands for this project (PNPM ONLY)
+alias build="pnpm run build"
+alias dev="pnpm run dev"  
+alias preview="pnpm run preview"
+
+# Package manager enforcement
+alias npm="echo '❌ Use pnpm instead of npm' && false"
+alias yarn="echo '❌ Use pnpm instead of yarn' && false"
+
+# Quality validation commands
+alias validate="pnpm run build && echo 'Build successful ✅'"
+alias check-overlap="grep -r 'StateComparison\|ReactFlutterMapping\|DependencyInjection' src/pages/ || echo 'No content overlap detected ✅'"
+alias check-links="grep -r 'href=\|to=' src/pages/ | grep -v 'http' || echo 'All internal links found'"
+
+# Content development helpers
+alias find-code="grep -r 'CodeBlock\|ComparisonCode' src/pages/"
+alias find-cards="grep -r 'Card className' src/pages/"
+alias check-japanese="grep -r '[ひらがなカタカナ漢字]' src/pages/ || echo 'Japanese content found'"
+
+# Performance monitoring
+alias bundle-size="pnpm run build && ls -la dist/assets/ | sort -k5 -n"
+alias syntax-check="grep -r 'prism-react-renderer\|language=' src/ || echo 'Syntax highlighting check'"
+
+# Common development patterns
+export ANDROID_GREEN="#3DDC84"
+export ANDROID_BLUE="#4285F4" 
+export KOTLIN_PURPLE="#7F52FF"
+export REACT_BLUE="#61DAFB"
+export FLUTTER_BLUE="#02569B"
+
+# Development standards
+export MIN_MOBILE_WIDTH="375px"
+export MIN_TABLET_WIDTH="768px"
+export MIN_DESKTOP_WIDTH="1024px"
+
+# Educational content standards
+export MAX_CODE_BLOCK_LINES="30"
+export MAX_COMPARISON_EXAMPLES="3"
+export REQUIRED_LEARNING_TIME="表示必須"
+export CROSS_REFERENCE_REQUIRED="true"

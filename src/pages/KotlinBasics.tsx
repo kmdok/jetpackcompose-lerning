@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { CheckCircle2, Zap, GitBranch, Play } from 'lucide-react'
+import CodeBlock from '@/components/CodeBlock'
 
 export default function KotlinBasics() {
   return (
@@ -61,7 +62,7 @@ export default function KotlinBasics() {
             <CardTitle>変数宣言とnull安全性</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// val (不変) vs var (可変)
 val name = "John"      // 不変 (変更不可)
 var age = 25           // 可変
@@ -84,7 +85,7 @@ val length2 = nullable?.length ?: 0  // null の場合は 0
 
 // !! operator (null でないと確信している場合)
 val length3 = nullable!!.length  // null なら NullPointerException`}
-            </pre>
+            </CodeBlock>
             <div className="bg-blue-50 p-3 rounded-lg">
               <p className="text-xs text-blue-900">
                 <strong>💡 比較:</strong> React/Flutterではランタイムエラー。Kotlinはコンパイル時にnullチェック！
@@ -98,7 +99,7 @@ val length3 = nullable!!.length  // null なら NullPointerException`}
             <CardTitle>データクラスとsealed class</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// Data class (equals, hashCode, toString, copy が自動生成)
 data class User(
     val id: Int,
@@ -122,7 +123,7 @@ fun render(state: UiState) = when (state) {
     is UiState.Error -> "Error: \${state.message}"
     // 全パターン網羅しないとコンパイルエラー
 }`}
-            </pre>
+            </CodeBlock>
             <div className="grid md:grid-cols-2 gap-3 text-xs">
               <div className="bg-green-50 p-3 rounded-lg">
                 <p className="text-green-900">
@@ -143,7 +144,7 @@ fun render(state: UiState) = when (state) {
             <CardTitle>高階関数とラムダ式</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`val numbers = listOf(1, 2, 3, 4, 5)
 
 // map, filter (React/Flutterと同じ)
@@ -169,7 +170,7 @@ repeat(3) { index ->
 fun String.addExclamation() = "$this!"
 
 val greeting = "Hello".addExclamation()  // "Hello!"`}
-            </pre>
+            </CodeBlock>
           </CardContent>
         </Card>
       </div>
@@ -214,7 +215,7 @@ val greeting = "Hello".addExclamation()  // "Hello!"`}
             <CardTitle>suspend 関数 (基礎)</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// suspend 関数 (コルーチン内でのみ呼び出せる)
 suspend fun fetchUser(id: Int): User {
     delay(1000)  // 1秒待つ (非ブロッキング)
@@ -243,7 +244,7 @@ viewModelScope.launch {
     val posts = postsDeferred.await()
     // 合計1秒 (並列実行)
 }`}
-            </pre>
+            </CodeBlock>
           </CardContent>
         </Card>
 
@@ -252,7 +253,7 @@ viewModelScope.launch {
             <CardTitle>Coroutine Scope と Dispatcher</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// ViewModelScope (ViewModelと連動、自動キャンセル)
 @HiltViewModel
 class MyViewModel @Inject constructor() : ViewModel() {
@@ -291,7 +292,7 @@ viewModelScope.launch(Dispatchers.IO) {
 // - Dispatchers.IO: ネットワーク、DB (最大64スレッド)
 // - Dispatchers.Default: CPU集約処理 (CPUコア数分)
 // - Dispatchers.Unconfined: 呼び出し元スレッド`}
-            </pre>
+            </CodeBlock>
             <div className="bg-purple-50 p-3 rounded-lg">
               <p className="text-xs text-purple-900">
                 <strong>💡 React比較:</strong> useEffectのcleanup関数が自動で呼ばれるイメージ。
@@ -306,7 +307,7 @@ viewModelScope.launch(Dispatchers.IO) {
             <CardTitle>エラーハンドリング</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// try-catch で捕捉
 viewModelScope.launch {
     try {
@@ -340,7 +341,7 @@ val handler = CoroutineExceptionHandler { _, exception ->
 viewModelScope.launch(handler) {
     throw Exception("Error!")
 }`}
-            </pre>
+            </CodeBlock>
           </CardContent>
         </Card>
       </div>
@@ -385,7 +386,7 @@ viewModelScope.launch(handler) {
             <CardTitle>Flow の基本</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// Flowの作成
 fun numbers(): Flow<Int> = flow {
     for (i in 1..3) {
@@ -416,7 +417,7 @@ viewModelScope.launch {
             _uiState.value = UiState.Success(users)
         }
 }`}
-            </pre>
+            </CodeBlock>
           </CardContent>
         </Card>
 
@@ -425,7 +426,7 @@ viewModelScope.launch {
             <CardTitle>Flow Operators (主要なもの)</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// map: 値を変換
 flow { emit(1); emit(2) }
     .map { it * 2 }
@@ -470,7 +471,7 @@ searchQuery
 flow { emit(1); emit(1); emit(2); emit(2) }
     .distinctUntilChanged()
     .collect { println(it) }  // 1, 2`}
-            </pre>
+            </CodeBlock>
             <div className="bg-green-50 p-3 rounded-lg">
               <p className="text-xs text-green-900">
                 <strong>💡 リアルタイム検索:</strong> debounce + flatMapLatest の組み合わせが強力！
@@ -484,7 +485,7 @@ flow { emit(1); emit(1); emit(2); emit(2) }
             <CardTitle>StateFlow と SharedFlow (Hot Stream)</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// StateFlow: 常に最新の値を保持 (Hot Stream)
 private val _count = MutableStateFlow(0)
 val count: StateFlow<Int> = _count.asStateFlow()
@@ -541,7 +542,7 @@ class UserListViewModel @Inject constructor(
             initialValue = emptyList()
         )
 }`}
-            </pre>
+            </CodeBlock>
             <div className="grid md:grid-cols-2 gap-3 text-xs">
               <div className="bg-blue-50 p-3 rounded-lg">
                 <p className="text-blue-900">
@@ -562,7 +563,7 @@ class UserListViewModel @Inject constructor(
             <CardTitle>stateIn() - FlowをStateFlowに変換</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+            <CodeBlock className="text-xs">
 {`// Repository が Flow<List<User>> を返す場合
 interface UserRepository {
     fun getUsers(): Flow<List<User>>
@@ -600,71 +601,35 @@ fun UserListScreen(
         }
     }
 }`}
-            </pre>
+            </CodeBlock>
           </CardContent>
         </Card>
       </div>
 
       {/* Comparison */}
-      <Card className="border-2 border-blue-200">
-        <CardHeader className="bg-gradient-to-r from-blue-50 to-purple-50">
-          <CardTitle>React / Flutter との比較</CardTitle>
+      <Card className="bg-blue-50 border-blue-200">
+        <CardHeader>
+          <CardTitle className="text-blue-800">React/Flutter経験者向け</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 pt-6">
-          {/* React */}
-          <div>
-            <h3 className="font-semibold text-react-blue mb-3 flex items-center gap-2 text-lg">
-              <span className="text-xl">⚛️</span>
-              React (async/await + RxJS)
-            </h3>
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
-{`// 非同期処理
-async function fetchUser(id) {
-  const response = await fetch(\`/api/users/\${id}\`);
-  return response.json();
-}
-
-// リアクティブストリーム (RxJS)
-const search$ = new Subject();
-
-search$
-  .pipe(
-    debounceTime(300),
-    switchMap(query => searchAPI(query))
-  )
-  .subscribe(results => setResults(results));`}
-            </pre>
-            <p className="text-xs text-gray-600 mt-2">
-              → Kotlin: <code className="bg-gray-100 px-1 rounded">suspend fun + Flow + flatMapLatest</code>
-            </p>
+        <CardContent>
+          <p className="text-sm text-blue-700 mb-3">
+            KotlinのCoroutine + Flowは、ReactのPromise/RxJSやFlutterのFuture/Streamと同様の非同期処理を提供します。
+          </p>
+          <div className="space-y-2">
+            <div className="text-xs">
+              <strong>async/await</strong> → <code className="bg-blue-100 px-1 rounded">suspend fun</code>
+            </div>
+            <div className="text-xs">
+              <strong>Promise/Future</strong> → <code className="bg-blue-100 px-1 rounded">Deferred</code>
+            </div>
+            <div className="text-xs">
+              <strong>RxJS/Stream</strong> → <code className="bg-blue-100 px-1 rounded">Flow</code>
+            </div>
           </div>
-
-          {/* Flutter */}
-          <div>
-            <h3 className="font-semibold text-flutter-blue mb-3 flex items-center gap-2 text-lg">
-              <span className="text-xl">🐦</span>
-              Flutter (async/await + Stream)
-            </h3>
-            <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
-{`// 非同期処理
-Future<User> fetchUser(int id) async {
-  final response = await http.get('/api/users/$id');
-  return User.fromJson(response.data);
-}
-
-// リアクティブストリーム
-final controller = StreamController<String>();
-
-controller.stream
-  .debounceTime(Duration(milliseconds: 300))
-  .asyncMap((query) => searchAPI(query))
-  .listen((results) {
-    setState(() => _results = results);
-  });`}
-            </pre>
-            <p className="text-xs text-gray-600 mt-2">
-              → Kotlin: <code className="bg-gray-100 px-1 rounded">suspend fun + Flow + debounce</code>
-            </p>
+          <div className="mt-4">
+            <a href="/react-flutter-mapping" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+              📋 詳細な概念マッピング表を見る
+            </a>
           </div>
         </CardContent>
       </Card>
