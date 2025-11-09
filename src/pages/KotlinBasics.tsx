@@ -1,6 +1,13 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { CheckCircle2, Zap, GitBranch, Play } from 'lucide-react'
-import CodeBlock from '@/components/CodeBlock'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { CheckCircle2, Zap, GitBranch, Play } from "lucide-react";
+import { Link } from "react-router-dom";
+import CodeBlock from "@/components/CodeBlock";
 
 export default function KotlinBasics() {
   return (
@@ -51,7 +58,9 @@ export default function KotlinBasics() {
 
       {/* Kotlin Basics Section */}
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-kotlin-purple">Part 1: Kotlin基礎</h2>
+        <h2 className="text-2xl font-bold text-kotlin-purple">
+          Part 1: Kotlin基礎
+        </h2>
 
         <Card>
           <CardHeader>
@@ -59,7 +68,7 @@ export default function KotlinBasics() {
           </CardHeader>
           <CardContent className="space-y-4">
             <CodeBlock className="text-xs">
-{`// val (不変) vs var (可変)
+              {`// val (不変) vs var (可変)
 val name = "John"      // 不変 (変更不可)
 var age = 25           // 可変
 
@@ -84,7 +93,8 @@ val length3 = nullable!!.length  // null なら NullPointerException`}
             </CodeBlock>
             <div className="bg-blue-50 p-3 rounded-lg">
               <p className="text-xs text-blue-900">
-                <strong>💡 比較:</strong> React/Flutterではランタイムエラー。Kotlinはコンパイル時にnullチェック！
+                <strong>💡 比較:</strong>{" "}
+                React/Flutterではランタイムエラー。Kotlinはコンパイル時にnullチェック！
               </p>
             </div>
           </CardContent>
@@ -96,7 +106,7 @@ val length3 = nullable!!.length  // null なら NullPointerException`}
           </CardHeader>
           <CardContent className="space-y-4">
             <CodeBlock className="text-xs">
-{`// Data class (equals, hashCode, toString, copy が自動生成)
+              {`// Data class (equals, hashCode, toString, copy が自動生成)
 data class User(
     val id: Int,
     val name: String,
@@ -123,12 +133,14 @@ fun render(state: UiState) = when (state) {
             <div className="grid md:grid-cols-2 gap-3 text-xs">
               <div className="bg-green-50 p-3 rounded-lg">
                 <p className="text-green-900">
-                  <strong>data class:</strong> ReactのTypeScript型 / FlutterのClass に相当
+                  <strong>data class:</strong> ReactのTypeScript型 /
+                  FlutterのClass に相当
                 </p>
               </div>
               <div className="bg-purple-50 p-3 rounded-lg">
                 <p className="text-purple-900">
-                  <strong>sealed class:</strong> TypeScriptのUnion型に似ている（型安全）
+                  <strong>sealed class:</strong>{" "}
+                  TypeScriptのUnion型に似ている（型安全）
                 </p>
               </div>
             </div>
@@ -141,7 +153,7 @@ fun render(state: UiState) = when (state) {
           </CardHeader>
           <CardContent className="space-y-4">
             <CodeBlock className="text-xs">
-{`val numbers = listOf(1, 2, 3, 4, 5)
+              {`val numbers = listOf(1, 2, 3, 4, 5)
 
 // map, filter (React/Flutterと同じ)
 val doubled = numbers.map { it * 2 }           // [2, 4, 6, 8, 10]
@@ -173,7 +185,9 @@ val greeting = "Hello".addExclamation()  // "Hello!"`}
 
       {/* Coroutines Section */}
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-android-green">Part 2: Coroutines (非同期処理)</h2>
+        <h2 className="text-2xl font-bold text-android-green">
+          Part 2: Coroutines (非同期処理)
+        </h2>
 
         <Card className="border-2 border-android-green/30">
           <CardHeader className="bg-gradient-to-r from-android-green/10 to-android-blue/10">
@@ -181,26 +195,35 @@ val greeting = "Hello".addExclamation()  // "Hello!"`}
               <Zap className="w-5 h-5" />
               Coroutinesとは？
             </CardTitle>
-            <CardDescription>非同期処理を同期的なコードで書ける</CardDescription>
+            <CardDescription>
+              非同期処理を同期的なコードで書ける
+            </CardDescription>
           </CardHeader>
           <CardContent className="pt-6 space-y-4">
             <div className="grid md:grid-cols-3 gap-4 text-xs">
               <div className="space-y-2">
                 <h4 className="font-semibold text-kotlin-purple">⚛️ React</h4>
-                <code className="text-xs bg-gray-100 px-2 py-1 rounded block">async/await + Promise</code>
+                <code className="text-xs bg-gray-100 px-2 py-1 rounded block">
+                  async/await + Promise
+                </code>
               </div>
               <div className="space-y-2">
                 <h4 className="font-semibold text-flutter-blue">🐦 Flutter</h4>
-                <code className="text-xs bg-gray-100 px-2 py-1 rounded block">async/await + Future</code>
+                <code className="text-xs bg-gray-100 px-2 py-1 rounded block">
+                  async/await + Future
+                </code>
               </div>
               <div className="space-y-2">
                 <h4 className="font-semibold text-android-green">🤖 Kotlin</h4>
-                <code className="text-xs bg-gray-100 px-2 py-1 rounded block">suspend + Coroutines</code>
+                <code className="text-xs bg-gray-100 px-2 py-1 rounded block">
+                  suspend + Coroutines
+                </code>
               </div>
             </div>
             <div className="bg-blue-50 p-3 rounded-lg">
               <p className="text-xs text-blue-900">
-                <strong>💡 ポイント:</strong> Coroutinesは軽量スレッド。何千ものコルーチンを同時実行可能。
+                <strong>💡 ポイント:</strong>{" "}
+                Coroutinesは軽量スレッド。何千ものコルーチンを同時実行可能。
               </p>
             </div>
           </CardContent>
@@ -212,7 +235,7 @@ val greeting = "Hello".addExclamation()  // "Hello!"`}
           </CardHeader>
           <CardContent className="space-y-4">
             <CodeBlock className="text-xs">
-{`// suspend 関数 (コルーチン内でのみ呼び出せる)
+              {`// suspend 関数 (コルーチン内でのみ呼び出せる)
 suspend fun fetchUser(id: Int): User {
     delay(1000)  // 1秒待つ (非ブロッキング)
     return User(id, "John", "john@example.com")
@@ -250,7 +273,7 @@ viewModelScope.launch {
           </CardHeader>
           <CardContent className="space-y-4">
             <CodeBlock className="text-xs">
-{`// ViewModelScope (ViewModelと連動、自動キャンセル)
+              {`// ViewModelScope (ViewModelと連動、自動キャンセル)
 @HiltViewModel
 class MyViewModel @Inject constructor() : ViewModel() {
     fun loadData() {
@@ -291,7 +314,8 @@ viewModelScope.launch(Dispatchers.IO) {
             </CodeBlock>
             <div className="bg-purple-50 p-3 rounded-lg">
               <p className="text-xs text-purple-900">
-                <strong>💡 React比較:</strong> useEffectのcleanup関数が自動で呼ばれるイメージ。
+                <strong>💡 React比較:</strong>{" "}
+                useEffectのcleanup関数が自動で呼ばれるイメージ。
                 ViewModelが破棄されると全てのコルーチンが自動キャンセル。
               </p>
             </div>
@@ -304,7 +328,7 @@ viewModelScope.launch(Dispatchers.IO) {
           </CardHeader>
           <CardContent className="space-y-4">
             <CodeBlock className="text-xs">
-{`// try-catch で捕捉
+              {`// try-catch で捕捉
 viewModelScope.launch {
     try {
         val user = fetchUser(1)
@@ -344,7 +368,9 @@ viewModelScope.launch(handler) {
 
       {/* Flow Section */}
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-blue-600">Part 3: Flow (リアクティブストリーム)</h2>
+        <h2 className="text-2xl font-bold text-blue-600">
+          Part 3: Flow (リアクティブストリーム)
+        </h2>
 
         <Card className="border-2 border-blue-200">
           <CardHeader className="bg-gradient-to-r from-blue-50 to-purple-50">
@@ -352,26 +378,35 @@ viewModelScope.launch(handler) {
               <GitBranch className="w-5 h-5" />
               Flow とは？
             </CardTitle>
-            <CardDescription>非同期データストリーム (Cold Stream)</CardDescription>
+            <CardDescription>
+              非同期データストリーム (Cold Stream)
+            </CardDescription>
           </CardHeader>
           <CardContent className="pt-6 space-y-4">
             <div className="grid md:grid-cols-3 gap-4 text-xs">
               <div className="space-y-2">
                 <h4 className="font-semibold text-react-blue">⚛️ React</h4>
-                <code className="text-xs bg-gray-100 px-2 py-1 rounded block">Observable (RxJS)</code>
+                <code className="text-xs bg-gray-100 px-2 py-1 rounded block">
+                  Observable (RxJS)
+                </code>
               </div>
               <div className="space-y-2">
                 <h4 className="font-semibold text-flutter-blue">🐦 Flutter</h4>
-                <code className="text-xs bg-gray-100 px-2 py-1 rounded block">Stream</code>
+                <code className="text-xs bg-gray-100 px-2 py-1 rounded block">
+                  Stream
+                </code>
               </div>
               <div className="space-y-2">
                 <h4 className="font-semibold text-android-green">🤖 Kotlin</h4>
-                <code className="text-xs bg-gray-100 px-2 py-1 rounded block">Flow</code>
+                <code className="text-xs bg-gray-100 px-2 py-1 rounded block">
+                  Flow
+                </code>
               </div>
             </div>
             <div className="bg-blue-50 p-3 rounded-lg">
               <p className="text-xs text-blue-900">
-                <strong>💡 Cold Stream:</strong> collectされるまで実行されない。collectするたびに最初から実行。
+                <strong>💡 Cold Stream:</strong>{" "}
+                collectされるまで実行されない。collectするたびに最初から実行。
               </p>
             </div>
           </CardContent>
@@ -383,7 +418,7 @@ viewModelScope.launch(handler) {
           </CardHeader>
           <CardContent className="space-y-4">
             <CodeBlock className="text-xs">
-{`// Flowの作成
+              {`// Flowの作成
 fun numbers(): Flow<Int> = flow {
     for (i in 1..3) {
         delay(1000)  // 1秒待つ
@@ -423,7 +458,7 @@ viewModelScope.launch {
           </CardHeader>
           <CardContent className="space-y-4">
             <CodeBlock className="text-xs">
-{`// map: 値を変換
+              {`// map: 値を変換
 flow { emit(1); emit(2) }
     .map { it * 2 }
     .collect { println(it) }  // 2, 4
@@ -470,7 +505,8 @@ flow { emit(1); emit(1); emit(2); emit(2) }
             </CodeBlock>
             <div className="bg-green-50 p-3 rounded-lg">
               <p className="text-xs text-green-900">
-                <strong>💡 リアルタイム検索:</strong> debounce + flatMapLatest の組み合わせが強力！
+                <strong>💡 リアルタイム検索:</strong> debounce + flatMapLatest
+                の組み合わせが強力！
               </p>
             </div>
           </CardContent>
@@ -482,7 +518,7 @@ flow { emit(1); emit(1); emit(2); emit(2) }
           </CardHeader>
           <CardContent className="space-y-4">
             <CodeBlock className="text-xs">
-{`// StateFlow: 常に最新の値を保持 (Hot Stream)
+              {`// StateFlow: 常に最新の値を保持 (Hot Stream)
 private val _count = MutableStateFlow(0)
 val count: StateFlow<Int> = _count.asStateFlow()
 
@@ -542,12 +578,14 @@ class UserListViewModel @Inject constructor(
             <div className="grid md:grid-cols-2 gap-3 text-xs">
               <div className="bg-blue-50 p-3 rounded-lg">
                 <p className="text-blue-900">
-                  <strong>StateFlow:</strong> ReactのuseState、Flutter ChangeNotifier に相当
+                  <strong>StateFlow:</strong> ReactのuseState、Flutter
+                  ChangeNotifier に相当
                 </p>
               </div>
               <div className="bg-purple-50 p-3 rounded-lg">
                 <p className="text-purple-900">
-                  <strong>SharedFlow:</strong> ReactのEventEmitter、Flutter EventChannel に相当
+                  <strong>SharedFlow:</strong> ReactのEventEmitter、Flutter
+                  EventChannel に相当
                 </p>
               </div>
             </div>
@@ -560,7 +598,7 @@ class UserListViewModel @Inject constructor(
           </CardHeader>
           <CardContent className="space-y-4">
             <CodeBlock className="text-xs">
-{`// Repository が Flow<List<User>> を返す場合
+              {`// Repository が Flow<List<User>> を返す場合
 interface UserRepository {
     fun getUsers(): Flow<List<User>>
 }
@@ -605,27 +643,36 @@ fun UserListScreen(
       {/* Comparison */}
       <Card className="bg-blue-50 border-blue-200">
         <CardHeader>
-          <CardTitle className="text-blue-800">React/Flutter経験者向け</CardTitle>
+          <CardTitle className="text-blue-800">
+            React/Flutter経験者向け
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-blue-700 mb-3">
-            KotlinのCoroutine + Flowは、ReactのPromise/RxJSやFlutterのFuture/Streamと同様の非同期処理を提供します。
+            KotlinのCoroutine +
+            Flowは、ReactのPromise/RxJSやFlutterのFuture/Streamと同様の非同期処理を提供します。
           </p>
           <div className="space-y-2">
             <div className="text-xs">
-              <strong>async/await</strong> → <code className="bg-blue-100 px-1 rounded">suspend fun</code>
+              <strong>async/await</strong> →{" "}
+              <code className="bg-blue-100 px-1 rounded">suspend fun</code>
             </div>
             <div className="text-xs">
-              <strong>Promise/Future</strong> → <code className="bg-blue-100 px-1 rounded">Deferred</code>
+              <strong>Promise/Future</strong> →{" "}
+              <code className="bg-blue-100 px-1 rounded">Deferred</code>
             </div>
             <div className="text-xs">
-              <strong>RxJS/Stream</strong> → <code className="bg-blue-100 px-1 rounded">Flow</code>
+              <strong>RxJS/Stream</strong> →{" "}
+              <code className="bg-blue-100 px-1 rounded">Flow</code>
             </div>
           </div>
           <div className="mt-4">
-            <a href="/composables" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+            <Link
+              to="/composables"
+              className="text-blue-600 hover:text-blue-800 underline text-sm font-medium"
+            >
               📋 Composable詳細ページを見る
-            </a>
+            </Link>
           </div>
         </CardContent>
       </Card>
@@ -641,43 +688,67 @@ fun UserListScreen(
         <CardContent>
           <div className="space-y-3">
             <div className="flex gap-3">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">1</div>
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">
+                1
+              </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-sm">viewModelScope を使う</h3>
-                <p className="text-xs text-gray-600">ViewModelが破棄されると自動的にキャンセル</p>
+                <p className="text-xs text-gray-600">
+                  ViewModelが破棄されると自動的にキャンセル
+                </p>
               </div>
             </div>
             <div className="flex gap-3">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">2</div>
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">
+                2
+              </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-sm">Dispatcher を適切に使い分け</h3>
-                <p className="text-xs text-gray-600">IO処理は Dispatchers.IO、UI更新は Dispatchers.Main</p>
+                <h3 className="font-semibold text-sm">
+                  Dispatcher を適切に使い分け
+                </h3>
+                <p className="text-xs text-gray-600">
+                  IO処理は Dispatchers.IO、UI更新は Dispatchers.Main
+                </p>
               </div>
             </div>
             <div className="flex gap-3">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">3</div>
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">
+                3
+              </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-sm">StateFlow で状態管理</h3>
-                <p className="text-xs text-gray-600">UI状態は StateFlow、イベントは SharedFlow</p>
+                <p className="text-xs text-gray-600">
+                  UI状態は StateFlow、イベントは SharedFlow
+                </p>
               </div>
             </div>
             <div className="flex gap-3">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">4</div>
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">
+                4
+              </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-sm">Room は Flow を返す</h3>
-                <p className="text-xs text-gray-600">DBの変更を自動監視してUIに反映</p>
+                <p className="text-xs text-gray-600">
+                  DBの変更を自動監視してUIに反映
+                </p>
               </div>
             </div>
             <div className="flex gap-3">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">5</div>
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-android-green text-white flex items-center justify-center text-xs font-bold">
+                5
+              </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-sm">エラーハンドリングは Result型</h3>
-                <p className="text-xs text-gray-600">runCatching + onSuccess/onFailure で安全に</p>
+                <h3 className="font-semibold text-sm">
+                  エラーハンドリングは Result型
+                </h3>
+                <p className="text-xs text-gray-600">
+                  runCatching + onSuccess/onFailure で安全に
+                </p>
               </div>
             </div>
           </div>
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

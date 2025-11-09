@@ -1,6 +1,22 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import CodeBlock from '@/components/CodeBlock'
-import { CheckCircle2, GitBranch, RefreshCw, Database, ArrowRight, Clock, Shield, Layers } from 'lucide-react'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import CodeBlock from "@/components/CodeBlock";
+import {
+  CheckCircle2,
+  GitBranch,
+  RefreshCw,
+  Database,
+  ArrowRight,
+  Clock,
+  Shield,
+  Layers,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function StateManagement() {
   return (
@@ -12,15 +28,23 @@ export default function StateManagement() {
         </h1>
         <div className="flex flex-wrap gap-2">
           <span className="px-2 py-1 text-xs border rounded">ViewModel</span>
-          <span className="px-2 py-1 text-xs border rounded">StateFlow/LiveData</span>
-          <span className="px-2 py-1 text-xs border rounded">UiStateパターン</span>
-          <span className="px-2 py-1 text-xs border rounded">ライフサイクル</span>
+          <span className="px-2 py-1 text-xs border rounded">
+            StateFlow/LiveData
+          </span>
+          <span className="px-2 py-1 text-xs border rounded">
+            UiStateパターン
+          </span>
+          <span className="px-2 py-1 text-xs border rounded">
+            ライフサイクル
+          </span>
           <span className="px-2 py-1 text-xs border rounded">Hilt</span>
         </div>
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
           <p className="text-sm text-blue-800">
             💡 <strong>状態管理の選択基準</strong>については、
-            <a href="/state-comparison" className="underline font-medium">LiveData vs Flow vs State比較ページ</a>
+            <Link to="/state-comparison" className="underline font-medium">
+              LiveData vs Flow vs State比較ページ
+            </Link>
             で詳しく解説しています。
           </p>
         </div>
@@ -44,16 +68,29 @@ export default function StateManagement() {
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <h4 className="text-sm font-medium text-green-700">✅ ViewModelの利点</h4>
+                <h4 className="text-sm font-medium text-green-700">
+                  ✅ ViewModelの利点
+                </h4>
                 <ul className="text-sm space-y-1 text-gray-700">
-                  <li>• <strong>設定変更に対する耐性</strong> - 画面回転で状態が保持される</li>
-                  <li>• <strong>ライフサイクル対応</strong> - 自動的なリソース管理</li>
-                  <li>• <strong>UI分離</strong> - ビジネスロジックとUIの分離</li>
-                  <li>• <strong>テスト容易性</strong> - Unit testが簡単</li>
+                  <li>
+                    • <strong>設定変更に対する耐性</strong> -
+                    画面回転で状態が保持される
+                  </li>
+                  <li>
+                    • <strong>ライフサイクル対応</strong> - 自動的なリソース管理
+                  </li>
+                  <li>
+                    • <strong>UI分離</strong> - ビジネスロジックとUIの分離
+                  </li>
+                  <li>
+                    • <strong>テスト容易性</strong> - Unit testが簡単
+                  </li>
                 </ul>
               </div>
               <div className="space-y-2">
-                <h4 className="text-sm font-medium text-red-700">❌ Activity/Fragment直接の問題</h4>
+                <h4 className="text-sm font-medium text-red-700">
+                  ❌ Activity/Fragment直接の問題
+                </h4>
                 <ul className="text-sm space-y-1 text-gray-700">
                   <li>• 画面回転で状態が失われる</li>
                   <li>• メモリリークのリスク</li>
@@ -71,7 +108,7 @@ export default function StateManagement() {
               ViewModelライフサイクル
             </h3>
             <CodeBlock className="text-sm">
-{`// ViewModel のライフサイクル
+              {`// ViewModel のライフサイクル
 class MyActivity : AppCompatActivity() {
     private val viewModel: MyViewModel by viewModels()
 
@@ -129,7 +166,7 @@ Activity完全終了 → ViewModel.onCleared()
           <div className="space-y-3">
             <h3 className="font-semibold">基本的なUiStateパターン</h3>
             <CodeBlock className="text-sm">
-{`// 基本的なUiState定義
+              {`// 基本的なUiState定義
 sealed interface UserUiState {
     object Loading : UserUiState
     data class Success(val user: User) : UserUiState
@@ -219,9 +256,11 @@ class UserDetailViewModel @Inject constructor(
 
           {/* UI Implementation */}
           <div className="space-y-3">
-            <h3 className="font-semibold">UI実装 - when式での状態ハンドリング</h3>
+            <h3 className="font-semibold">
+              UI実装 - when式での状態ハンドリング
+            </h3>
             <CodeBlock className="text-sm">
-{`@Composable
+              {`@Composable
 fun UserDetailScreen(
     userId: String,
     viewModel: UserDetailViewModel = hiltViewModel()
@@ -379,7 +418,9 @@ fun UserDetailScreen(
               <h3 className="font-semibold text-orange-700">LiveData の特徴</h3>
               <div className="space-y-2">
                 <div className="bg-orange-50 p-3 rounded-lg">
-                  <h4 className="text-sm font-medium text-orange-800">内部動作</h4>
+                  <h4 className="text-sm font-medium text-orange-800">
+                    内部動作
+                  </h4>
                   <ul className="text-xs text-orange-700 mt-1 space-y-1">
                     <li>• Android AAC (Architecture Components) 専用</li>
                     <li>• LifecycleOwner に自動的にバインド</li>
@@ -388,7 +429,7 @@ fun UserDetailScreen(
                   </ul>
                 </div>
                 <CodeBlock className="text-xs">
-{`// LiveData の実装
+                  {`// LiveData の実装
 class UserViewModel : ViewModel() {
     private val _user = MutableLiveData<User>()
     val user: LiveData<User> = _user
@@ -424,7 +465,9 @@ viewModel.user.observe(this) { user ->
               <h3 className="font-semibold text-blue-700">StateFlow の特徴</h3>
               <div className="space-y-2">
                 <div className="bg-blue-50 p-3 rounded-lg">
-                  <h4 className="text-sm font-medium text-blue-800">内部動作</h4>
+                  <h4 className="text-sm font-medium text-blue-800">
+                    内部動作
+                  </h4>
                   <ul className="text-xs text-blue-700 mt-1 space-y-1">
                     <li>• Kotlin Coroutines ベース</li>
                     <li>• プラットフォーム非依存 (KMP対応)</li>
@@ -433,7 +476,7 @@ viewModel.user.observe(this) { user ->
                   </ul>
                 </div>
                 <CodeBlock className="text-xs">
-{`// StateFlow の実装  
+                  {`// StateFlow の実装  
 class UserViewModel : ViewModel() {
     private val _user = MutableStateFlow<User?>(null)
     val user: StateFlow<User?> = _user.asStateFlow()
@@ -471,9 +514,11 @@ lifecycleScope.launch {
 
           {/* Complex State Management */}
           <div className="space-y-3">
-            <h3 className="font-semibold">複雑な状態管理 - combine と transformation</h3>
+            <h3 className="font-semibold">
+              複雑な状態管理 - combine と transformation
+            </h3>
             <CodeBlock className="text-sm">
-{`@HiltViewModel
+              {`@HiltViewModel
 class SearchViewModel @Inject constructor(
     private val searchRepository: SearchRepository
 ) : ViewModel() {
@@ -561,14 +606,16 @@ data class SearchFilters(
             <Database className="w-5 h-5" />
             上級者向け: Repository + Room + StateFlow パターン
           </CardTitle>
-          <CardDescription>プロダクションレベルのデータフロー設計</CardDescription>
+          <CardDescription>
+            プロダクションレベルのデータフロー設計
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6 pt-6">
           {/* Complete Architecture */}
           <div className="space-y-3">
             <h3 className="font-semibold">完全なデータフロー実装</h3>
             <CodeBlock className="text-sm">
-{`// Entity (Room)
+              {`// Entity (Room)
 @Entity(tableName = "users")
 data class UserEntity(
     @PrimaryKey val id: String,
@@ -767,42 +814,60 @@ fun UserListScreen(
               <div className="space-y-3 text-sm">
                 <div className="bg-green-50 p-3 rounded-lg">
                   <h4 className="font-medium">UiStateパターンを使用</h4>
-                  <p className="text-xs text-green-700">sealed interface で型安全な状態管理</p>
+                  <p className="text-xs text-green-700">
+                    sealed interface で型安全な状態管理
+                  </p>
                 </div>
                 <div className="bg-green-50 p-3 rounded-lg">
                   <h4 className="font-medium">StateFlowをpublicに公開</h4>
-                  <p className="text-xs text-green-700">MutableStateFlowはprivateで保持</p>
+                  <p className="text-xs text-green-700">
+                    MutableStateFlowはprivateで保持
+                  </p>
                 </div>
                 <div className="bg-green-50 p-3 rounded-lg">
                   <h4 className="font-medium">Repository パターン</h4>
-                  <p className="text-xs text-green-700">データソースを抽象化、Single Source of Truth</p>
+                  <p className="text-xs text-green-700">
+                    データソースを抽象化、Single Source of Truth
+                  </p>
                 </div>
                 <div className="bg-green-50 p-3 rounded-lg">
                   <h4 className="font-medium">Hilt DI を活用</h4>
-                  <p className="text-xs text-green-700">@HiltViewModel で依存性注入</p>
+                  <p className="text-xs text-green-700">
+                    @HiltViewModel で依存性注入
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Don'ts */}
             <div className="space-y-3">
-              <h3 className="font-semibold text-red-700">❌ 避けるべきパターン</h3>
+              <h3 className="font-semibold text-red-700">
+                ❌ 避けるべきパターン
+              </h3>
               <div className="space-y-3 text-sm">
                 <div className="bg-red-50 p-3 rounded-lg">
                   <h4 className="font-medium">ViewModelに Android 依存</h4>
-                  <p className="text-xs text-red-700">Context, View等を直接参照しない</p>
+                  <p className="text-xs text-red-700">
+                    Context, View等を直接参照しない
+                  </p>
                 </div>
                 <div className="bg-red-50 p-3 rounded-lg">
                   <h4 className="font-medium">複数のStateFlowで同じ概念</h4>
-                  <p className="text-xs text-red-700">loading, user, error → UiStateに統合</p>
+                  <p className="text-xs text-red-700">
+                    loading, user, error → UiStateに統合
+                  </p>
                 </div>
                 <div className="bg-red-50 p-3 rounded-lg">
                   <h4 className="font-medium">直接的なMutableStateFlow公開</h4>
-                  <p className="text-xs text-red-700">asStateFlow()でimmutableに</p>
+                  <p className="text-xs text-red-700">
+                    asStateFlow()でimmutableに
+                  </p>
                 </div>
                 <div className="bg-red-50 p-3 rounded-lg">
                   <h4 className="font-medium">メモリリーク</h4>
-                  <p className="text-xs text-red-700">GlobalScope使用、リスナー解放忘れ</p>
+                  <p className="text-xs text-red-700">
+                    GlobalScope使用、リスナー解放忘れ
+                  </p>
                 </div>
               </div>
             </div>
@@ -822,10 +887,15 @@ fun UserListScreen(
                 <ArrowRight className="w-4 h-4" />
                 状態管理比較
               </h4>
-              <p className="text-sm text-blue-700 mb-2">LiveData vs Flow vs Compose State</p>
-              <a href="/state-comparison" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+              <p className="text-sm text-blue-700 mb-2">
+                LiveData vs Flow vs Compose State
+              </p>
+              <Link
+                to="/state-comparison"
+                className="text-blue-600 hover:text-blue-800 underline text-sm font-medium"
+              >
                 📊 状態管理技術比較ページ
-              </a>
+              </Link>
             </div>
             <div>
               <h4 className="font-medium text-blue-900 flex items-center gap-2">
@@ -833,13 +903,16 @@ fun UserListScreen(
                 依存性注入
               </h4>
               <p className="text-sm text-blue-700 mb-2">Hilt によるDI実装</p>
-              <a href="/dependency-injection" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+              <Link
+                to="/dependency-injection"
+                className="text-blue-600 hover:text-blue-800 underline text-sm font-medium"
+              >
                 🔧 依存性注入ページ
-              </a>
+              </Link>
             </div>
           </div>
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

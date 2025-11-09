@@ -1,28 +1,35 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Code2, Layers, Zap, Database, Box } from 'lucide-react'
-import CodeBlock from '@/components/CodeBlock'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Code2, Layers, Zap, Database, Box } from "lucide-react";
+import { Link } from "react-router-dom";
+import CodeBlock from "@/components/CodeBlock";
 
 export default function Comparison() {
   const architectureComparison = [
     {
-      concept: 'アーキテクチャ',
-      react: { code: 'Redux / Context', desc: '状態管理ライブラリ' },
-      flutter: { code: 'Provider / Riverpod', desc: '状態管理パッケージ' },
-      compose: { code: 'ViewModel + Flow/LiveData', desc: 'Android AAC' },
+      concept: "アーキテクチャ",
+      react: { code: "Redux / Context", desc: "状態管理ライブラリ" },
+      flutter: { code: "Provider / Riverpod", desc: "状態管理パッケージ" },
+      compose: { code: "ViewModel + Flow/LiveData", desc: "Android AAC" },
     },
     {
-      concept: 'DI(依存性注入)',
-      react: { code: 'なし (手動)', desc: 'ライブラリは任意' },
-      flutter: { code: 'GetIt / Riverpod', desc: 'サードパーティ' },
-      compose: { code: 'Hilt / Koin', desc: 'Hilt推奨' },
+      concept: "DI(依存性注入)",
+      react: { code: "なし (手動)", desc: "ライブラリは任意" },
+      flutter: { code: "GetIt / Riverpod", desc: "サードパーティ" },
+      compose: { code: "Hilt / Koin", desc: "Hilt推奨" },
     },
     {
-      concept: '非同期処理',
-      react: { code: 'async/await, Promise', desc: 'JavaScript標準' },
-      flutter: { code: 'Future, async/await', desc: 'Dart標準' },
-      compose: { code: 'Coroutine, Flow', desc: 'Kotlin標準' },
+      concept: "非同期処理",
+      react: { code: "async/await, Promise", desc: "JavaScript標準" },
+      flutter: { code: "Future, async/await", desc: "Dart標準" },
+      compose: { code: "Coroutine, Flow", desc: "Kotlin標準" },
     },
-  ]
+  ];
 
   return (
     <div className="max-w-6xl mx-auto space-y-8 pb-12">
@@ -43,14 +50,18 @@ export default function Comparison() {
         {architectureComparison.map((item, index) => (
           <Card key={index} className="overflow-hidden">
             <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100">
-              <CardTitle className="text-lg md:text-xl">{item.concept}</CardTitle>
+              <CardTitle className="text-lg md:text-xl">
+                {item.concept}
+              </CardTitle>
             </CardHeader>
             <CardContent className="p-0">
               <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x">
                 <div className="p-4 space-y-2">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-3 h-3 rounded-full bg-react-blue"></div>
-                    <span className="font-semibold text-react-blue text-sm">React</span>
+                    <span className="font-semibold text-react-blue text-sm">
+                      React
+                    </span>
                   </div>
                   <CodeBlock className="text-xs break-words">
                     {item.react.code}
@@ -61,7 +72,9 @@ export default function Comparison() {
                 <div className="p-4 space-y-2">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-3 h-3 rounded-full bg-flutter-blue"></div>
-                    <span className="font-semibold text-flutter-blue text-sm">Flutter</span>
+                    <span className="font-semibold text-flutter-blue text-sm">
+                      Flutter
+                    </span>
                   </div>
                   <CodeBlock className="text-xs break-words">
                     {item.flutter.code}
@@ -72,7 +85,9 @@ export default function Comparison() {
                 <div className="p-4 space-y-2">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-3 h-3 rounded-full bg-android-green"></div>
-                    <span className="font-semibold text-android-green text-sm">Compose</span>
+                    <span className="font-semibold text-android-green text-sm">
+                      Compose
+                    </span>
                   </div>
                   <CodeBlock className="text-xs break-words">
                     {item.compose.code}
@@ -92,7 +107,9 @@ export default function Comparison() {
             <Box className="w-5 h-5" />
             実践的なComposeアーキテクチャ
           </CardTitle>
-          <CardDescription>ViewModel + StateFlow/LiveData + Hilt構成</CardDescription>
+          <CardDescription>
+            ViewModel + StateFlow/LiveData + Hilt構成
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 pt-6">
           <div className="grid md:grid-cols-2 gap-4">
@@ -102,10 +119,18 @@ export default function Comparison() {
                 レイヤー構成
               </h3>
               <ul className="text-sm space-y-1 text-gray-700">
-                <li>• <strong>UI Layer</strong>: Composable</li>
-                <li>• <strong>ViewModel</strong>: 状態管理</li>
-                <li>• <strong>Repository</strong>: データソース抽象化</li>
-                <li>• <strong>Data Source</strong>: API/DB</li>
+                <li>
+                  • <strong>UI Layer</strong>: Composable
+                </li>
+                <li>
+                  • <strong>ViewModel</strong>: 状態管理
+                </li>
+                <li>
+                  • <strong>Repository</strong>: データソース抽象化
+                </li>
+                <li>
+                  • <strong>Data Source</strong>: API/DB
+                </li>
               </ul>
             </div>
             <div className="space-y-2">
@@ -114,10 +139,18 @@ export default function Comparison() {
                 主要コンポーネント
               </h3>
               <ul className="text-sm space-y-1 text-gray-700">
-                <li>• <strong>Hilt</strong>: DI (依存性注入)</li>
-                <li>• <strong>StateFlow/LiveData</strong>: 状態監視</li>
-                <li>• <strong>Coroutine</strong>: 非同期処理</li>
-                <li>• <strong>Room/Retrofit</strong>: データ永続化/通信</li>
+                <li>
+                  • <strong>Hilt</strong>: DI (依存性注入)
+                </li>
+                <li>
+                  • <strong>StateFlow/LiveData</strong>: 状態監視
+                </li>
+                <li>
+                  • <strong>Coroutine</strong>: 非同期処理
+                </li>
+                <li>
+                  • <strong>Room/Retrofit</strong>: データ永続化/通信
+                </li>
               </ul>
             </div>
           </div>
@@ -140,7 +173,7 @@ export default function Comparison() {
             </CardHeader>
             <CardContent className="pt-4 space-y-3">
               <CodeBlock className="text-xs">
-{`// ViewModel
+                {`// ViewModel
 class UserViewModel @Inject constructor(
     private val repository: UserRepository
 ) : ViewModel() {
@@ -183,7 +216,7 @@ fun UserScreen(
             </CardHeader>
             <CardContent className="pt-4 space-y-3">
               <CodeBlock className="text-xs">
-{`// ViewModel
+                {`// ViewModel
 class UserViewModel @Inject constructor(
     private val repository: UserRepository
 ) : ViewModel() {
@@ -228,7 +261,7 @@ fun UserScreen(
         </CardHeader>
         <CardContent className="space-y-4">
           <CodeBlock className="text-xs">
-{`// Application
+            {`// Application
 @HiltAndroidApp
 class MyApplication : Application()
 
@@ -274,10 +307,18 @@ fun UserScreen(
 }`}
           </CodeBlock>
           <div className="mt-4 space-y-2 text-sm text-gray-700">
-            <p><strong>@HiltAndroidApp</strong>: Application クラスに付与</p>
-            <p><strong>@AndroidEntryPoint</strong>: Activity/Fragment に付与</p>
-            <p><strong>@HiltViewModel</strong>: ViewModelに付与</p>
-            <p><strong>hiltViewModel()</strong>: Composableで取得</p>
+            <p>
+              <strong>@HiltAndroidApp</strong>: Application クラスに付与
+            </p>
+            <p>
+              <strong>@AndroidEntryPoint</strong>: Activity/Fragment に付与
+            </p>
+            <p>
+              <strong>@HiltViewModel</strong>: ViewModelに付与
+            </p>
+            <p>
+              <strong>hiltViewModel()</strong>: Composableで取得
+            </p>
           </div>
         </CardContent>
       </Card>
@@ -289,22 +330,33 @@ fun UserScreen(
         </CardHeader>
         <CardContent className="space-y-3">
           <div>
-            <h4 className="font-medium text-blue-900">🔄 React/Flutter開発者向け</h4>
-            <p className="text-sm text-blue-700 mb-2">既存のスキルを活かした効率的学習</p>
-            <a href="/composables" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+            <h4 className="font-medium text-blue-900">
+              🔄 React/Flutter開発者向け
+            </h4>
+            <p className="text-sm text-blue-700 mb-2">
+              既存のスキルを活かした効率的学習
+            </p>
+            <Link
+              to="/composables"
+              className="text-blue-600 hover:text-blue-800 underline text-sm font-medium"
+            >
               📋 Composable 詳細ガイド
-            </a>
+            </Link>
           </div>
           <div>
             <h4 className="font-medium text-blue-900">⚖️ 状態管理の選択</h4>
-            <p className="text-sm text-blue-700 mb-2">LiveData vs Flow vs Compose State の使い分け</p>
-            <a href="/state-comparison" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+            <p className="text-sm text-blue-700 mb-2">
+              LiveData vs Flow vs Compose State の使い分け
+            </p>
+            <Link
+              to="/state-comparison"
+              className="text-blue-600 hover:text-blue-800 underline text-sm font-medium"
+            >
               📊 状態管理技術比較ページ
-            </a>
+            </Link>
           </div>
         </CardContent>
       </Card>
-
     </div>
-  )
+  );
 }

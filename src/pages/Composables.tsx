@@ -1,6 +1,23 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { CheckCircle2, AlertCircle, Code2, Layers, RefreshCw, Zap, GitBranch, Eye, ArrowRight } from 'lucide-react'
-import CodeBlock from '@/components/CodeBlock'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  CheckCircle2,
+  AlertCircle,
+  Code2,
+  Layers,
+  RefreshCw,
+  Zap,
+  GitBranch,
+  Eye,
+  ArrowRight,
+} from "lucide-react";
+import CodeBlock from "@/components/CodeBlock";
+import { Link } from "react-router-dom";
 
 export default function Composables() {
   return (
@@ -12,8 +29,12 @@ export default function Composables() {
         </h1>
         <div className="flex flex-wrap gap-2">
           <span className="px-2 py-1 text-xs border rounded">宣言的UI</span>
-          <span className="px-2 py-1 text-xs border rounded">関数型アプローチ</span>
-          <span className="px-2 py-1 text-xs border rounded">Recomposition</span>
+          <span className="px-2 py-1 text-xs border rounded">
+            関数型アプローチ
+          </span>
+          <span className="px-2 py-1 text-xs border rounded">
+            Recomposition
+          </span>
           <span className="px-2 py-1 text-xs border rounded">状態管理</span>
         </div>
       </div>
@@ -30,16 +51,26 @@ export default function Composables() {
           </CardHeader>
           <CardContent className="space-y-4 pt-6">
             <p className="text-sm leading-relaxed">
-              Composableは<strong>UI要素を記述する関数</strong>です。従来のAndroidの命令的UI（View）とは異なり、
-              <strong>「何を表示するか」を宣言する</strong>関数型アプローチを採用します。
+              Composableは<strong>UI要素を記述する関数</strong>
+              です。従来のAndroidの命令的UI（View）とは異なり、
+              <strong>「何を表示するか」を宣言する</strong>
+              関数型アプローチを採用します。
             </p>
             <div className="space-y-2">
               <h4 className="font-semibold text-sm">重要な特徴：</h4>
               <ul className="text-sm space-y-1 text-gray-700">
-                <li>• <strong>@Composable</strong>アノテーションが必須</li>
-                <li>• <strong>副作用なし</strong> - 同じ入力で同じ出力</li>
-                <li>• <strong>再実行可能</strong> - 状態変化で自動再実行</li>
-                <li>• <strong>順序依存</strong> - 呼び出し順序が重要</li>
+                <li>
+                  • <strong>@Composable</strong>アノテーションが必須
+                </li>
+                <li>
+                  • <strong>副作用なし</strong> - 同じ入力で同じ出力
+                </li>
+                <li>
+                  • <strong>再実行可能</strong> - 状態変化で自動再実行
+                </li>
+                <li>
+                  • <strong>順序依存</strong> - 呼び出し順序が重要
+                </li>
               </ul>
             </div>
           </CardContent>
@@ -55,16 +86,25 @@ export default function Composables() {
           </CardHeader>
           <CardContent className="space-y-4 pt-6">
             <p className="text-sm leading-relaxed">
-              状態が変化すると、関連するComposableが<strong>自動的に再実行</strong>されます。
+              状態が変化すると、関連するComposableが
+              <strong>自動的に再実行</strong>されます。
               これがRecompositionで、Composeの最も重要な概念です。
             </p>
             <div className="space-y-2">
               <h4 className="font-semibold text-sm">最適化のポイント：</h4>
               <ul className="text-sm space-y-1 text-gray-700">
-                <li>• <strong>Stable型</strong>の使用（primitives、data class）</li>
-                <li>• <strong>remember</strong>による計算結果キャッシュ</li>
-                <li>• <strong>derivedStateOf</strong>による派生状態</li>
-                <li>• <strong>key()</strong>による識別子指定</li>
+                <li>
+                  • <strong>Stable型</strong>の使用（primitives、data class）
+                </li>
+                <li>
+                  • <strong>remember</strong>による計算結果キャッシュ
+                </li>
+                <li>
+                  • <strong>derivedStateOf</strong>による派生状態
+                </li>
+                <li>
+                  • <strong>key()</strong>による識別子指定
+                </li>
               </ul>
             </div>
           </CardContent>
@@ -87,8 +127,11 @@ export default function Composables() {
                 <div className="w-3 h-3 rounded-full bg-react-blue"></div>
                 <span className="font-semibold text-react-blue">React</span>
               </div>
-              <CodeBlock language="javascript" className="text-xs bg-react-blue/5">
-{`function Greeting({ name }) {
+              <CodeBlock
+                language="javascript"
+                className="text-xs bg-react-blue/5"
+              >
+                {`function Greeting({ name }) {
   const [count, setCount] = useState(0)
   
   return (
@@ -111,7 +154,7 @@ export default function Composables() {
                 <span className="font-semibold text-flutter-blue">Flutter</span>
               </div>
               <CodeBlock language="dart" className="text-xs bg-flutter-blue/5">
-{`class Greeting extends StatefulWidget {
+                {`class Greeting extends StatefulWidget {
   final String name;
   
   @override
@@ -142,10 +185,12 @@ class _GreetingState extends State<Greeting> {
             <div className="space-y-3">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-3 h-3 rounded-full bg-android-green"></div>
-                <span className="font-semibold text-android-green">Compose</span>
+                <span className="font-semibold text-android-green">
+                  Compose
+                </span>
               </div>
               <CodeBlock className="text-xs bg-android-green/5">
-{`@Composable
+                {`@Composable
 fun Greeting(name: String) {
     var count by remember { mutableStateOf(0) }
     
@@ -172,7 +217,9 @@ fun Greeting(name: String) {
             <GitBranch className="w-5 h-5" />
             状態管理の深い理解
           </CardTitle>
-          <CardDescription>remember、mutableStateOf、derivedStateOf</CardDescription>
+          <CardDescription>
+            remember、mutableStateOf、derivedStateOf
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6 pt-6">
           {/* remember */}
@@ -185,7 +232,7 @@ fun Greeting(name: String) {
               Recomposition間で値を保持します。計算コストの高い処理や、オブジェクトの再生成を防ぐために使用。
             </p>
             <CodeBlock className="text-sm">
-{`@Composable
+              {`@Composable
 fun ExpensiveComponent() {
     // ❌ 毎回新しいリストが作成される
     val expensiveList = createExpensiveList()
@@ -211,7 +258,7 @@ fun ExpensiveComponent() {
               値の変更を自動検出し、依存するComposableのRecompositionをトリガーします。
             </p>
             <CodeBlock className="text-sm">
-{`@Composable
+              {`@Composable
 fun StateExample() {
     // by デリゲートで直接的なアクセス
     var text by remember { mutableStateOf("") }
@@ -248,7 +295,7 @@ fun StateExample() {
               他の状態から計算される値の不要な再計算を防ぎます。依存する値が実際に変更された時のみ再計算。
             </p>
             <CodeBlock className="text-sm">
-{`@Composable
+              {`@Composable
 fun SearchList(items: List<String>) {
     var query by remember { mutableStateOf("") }
     
@@ -288,18 +335,23 @@ fun SearchList(items: List<String>) {
             <AlertCircle className="w-5 h-5" />
             上級者向け：Composableの内部動作
           </CardTitle>
-          <CardDescription>Slot Table、Composition、CompositionLocal</CardDescription>
+          <CardDescription>
+            Slot Table、Composition、CompositionLocal
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6 pt-6">
           {/* Slot Table */}
           <div className="space-y-3">
-            <h3 className="font-semibold">Slot Table - Composeの内部データ構造</h3>
+            <h3 className="font-semibold">
+              Slot Table - Composeの内部データ構造
+            </h3>
             <p className="text-sm text-gray-700">
-              Composeランタイムは Slot Table という木構造でComposableを管理します。
+              Composeランタイムは Slot Table
+              という木構造でComposableを管理します。
               各Composableの位置と状態を効率的に追跡し、最小限のRecompositionを実現。
             </p>
             <CodeBlock className="text-sm">
-{`// Composeが内部で管理する概念的な構造
+              {`// Composeが内部で管理する概念的な構造
 // 実際のSlot Tableのイメージ
 SlotTable {
     Group(key = "MyScreen") {
@@ -329,12 +381,14 @@ fun ItemList(items: List<Item>) {
 
           {/* CompositionLocal */}
           <div className="space-y-3">
-            <h3 className="font-semibold">CompositionLocal - 暗黙的な依存性注入</h3>
+            <h3 className="font-semibold">
+              CompositionLocal - 暗黙的な依存性注入
+            </h3>
             <p className="text-sm text-gray-700">
               Composition階層を通じて値を暗黙的に渡すメカニズム。Reactのcontext、Flutterのtheme概念に相当。
             </p>
             <CodeBlock className="text-sm">
-{`// CompositionLocalの定義
+              {`// CompositionLocalの定義
 val LocalUserPreferences = compositionLocalOf<UserPreferences> {
     error("UserPreferences not provided")
 }
@@ -367,9 +421,11 @@ fun SomeDeepComponent() {
             <h3 className="font-semibold">パフォーマンス最適化テクニック</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <h4 className="text-sm font-medium text-green-700">✅ 推奨パターン</h4>
+                <h4 className="text-sm font-medium text-green-700">
+                  ✅ 推奨パターン
+                </h4>
                 <CodeBlock className="text-xs">
-{`// Stable型の使用
+                  {`// Stable型の使用
 @Immutable
 data class User(val id: String, val name: String)
 
@@ -393,11 +449,13 @@ fun DataLoader(userId: String) {
 }`}
                 </CodeBlock>
               </div>
-              
+
               <div className="space-y-2">
-                <h4 className="text-sm font-medium text-red-700">❌ 避けるべきパターン</h4>
+                <h4 className="text-sm font-medium text-red-700">
+                  ❌ 避けるべきパターン
+                </h4>
                 <CodeBlock className="text-xs">
-{`// 不安定な型
+                  {`// 不安定な型
 data class MutableUser(var name: String)
 
 // 毎回新しいラムダ
@@ -429,11 +487,13 @@ fun BadComponent() {
       <Card className="border-2 border-android-green/30">
         <CardHeader className="bg-gradient-to-br from-android-green/10 to-android-blue/10">
           <CardTitle>実践例：完全なComposable設計</CardTitle>
-          <CardDescription>プロダクションレベルのComposable実装</CardDescription>
+          <CardDescription>
+            プロダクションレベルのComposable実装
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 pt-6">
           <CodeBlock className="text-sm">
-{`@Stable
+            {`@Stable
 data class UserProfile(
     val id: String,
     val name: String,
@@ -547,24 +607,34 @@ private fun OnlineIndicator() {
                 <ArrowRight className="w-4 h-4" />
                 State管理
               </h4>
-              <p className="text-sm text-blue-700 mb-2">ViewModel + StateFlow/LiveData パターン</p>
-              <a href="/state-management" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+              <p className="text-sm text-blue-700 mb-2">
+                ViewModel + StateFlow/LiveData パターン
+              </p>
+              <Link
+                to="/state-management"
+                className="text-blue-600 hover:text-blue-800 underline text-sm font-medium"
+              >
                 📊 State管理ページ
-              </a>
+              </Link>
             </div>
             <div>
               <h4 className="font-medium text-blue-900 flex items-center gap-2">
                 <ArrowRight className="w-4 h-4" />
                 レイアウト構築
               </h4>
-              <p className="text-sm text-blue-700 mb-2">Row、Column、Boxでの配置</p>
-              <a href="/layouts" className="text-blue-600 hover:text-blue-800 underline text-sm font-medium">
+              <p className="text-sm text-blue-700 mb-2">
+                Row、Column、Boxでの配置
+              </p>
+              <Link
+                to="/layouts"
+                className="text-blue-600 hover:text-blue-800 underline text-sm font-medium"
+              >
                 🏗️ レイアウトページ
-              </a>
+              </Link>
             </div>
           </div>
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
