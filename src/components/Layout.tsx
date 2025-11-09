@@ -28,12 +28,12 @@ export default function Layout({ children }: LayoutProps) {
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-android-green to-android-blue flex items-center justify-center">
               <Smartphone className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-android-green to-android-blue bg-clip-text text-transparent">
+            <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-android-green to-android-blue bg-clip-text text-transparent">
               Jetpack Compose
             </span>
           </Link>
@@ -74,7 +74,7 @@ export default function Layout({ children }: LayoutProps) {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden border-t bg-white">
-            <nav className="container mx-auto px-4 py-2 flex flex-col space-y-1">
+            <nav className="container mx-auto px-3 sm:px-4 py-2 flex flex-col space-y-1">
               {navigation.map((item) => {
                 const Icon = item.icon
                 const isActive = location.pathname === item.path
@@ -102,7 +102,7 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
         {children}
       </main>
 

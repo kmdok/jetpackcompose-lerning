@@ -17,7 +17,7 @@ export default function CodeBlock({ children, language = 'kotlin', className = '
     >
       {({ className: prismClassName, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          className={`${prismClassName} ${className} text-sm p-4 rounded-lg overflow-x-auto border`}
+          className={`${prismClassName} ${className} text-xs sm:text-sm p-2 sm:p-4 rounded-lg overflow-x-auto border whitespace-pre-wrap sm:whitespace-pre`}
           style={style}
         >
           {tokens.map((line, i) => (

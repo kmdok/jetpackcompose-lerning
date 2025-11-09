@@ -32,10 +32,10 @@ export default function Comparison() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto space-y-8 pb-12">
+    <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8 pb-8 sm:pb-12">
       {/* Header */}
       <div className="space-y-4">
-        <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-android-green to-android-blue bg-clip-text text-transparent">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-android-green to-android-blue bg-clip-text text-transparent leading-tight">
           Flutter/React との比較
         </h1>
       </div>
@@ -55,8 +55,8 @@ export default function Comparison() {
               </CardTitle>
             </CardHeader>
             <CardContent className="p-0">
-              <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x">
-                <div className="p-4 space-y-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x">
+                <div className="p-3 sm:p-4 space-y-2">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-3 h-3 rounded-full bg-react-blue"></div>
                     <span className="font-semibold text-react-blue text-sm">
@@ -69,7 +69,7 @@ export default function Comparison() {
                   <p className="text-xs text-gray-600">{item.react.desc}</p>
                 </div>
 
-                <div className="p-4 space-y-2">
+                <div className="p-3 sm:p-4 space-y-2">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-3 h-3 rounded-full bg-flutter-blue"></div>
                     <span className="font-semibold text-flutter-blue text-sm">
@@ -82,7 +82,7 @@ export default function Comparison() {
                   <p className="text-xs text-gray-600">{item.flutter.desc}</p>
                 </div>
 
-                <div className="p-4 space-y-2">
+                <div className="p-3 sm:p-4 space-y-2">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-3 h-3 rounded-full bg-android-green"></div>
                     <span className="font-semibold text-android-green text-sm">

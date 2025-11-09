@@ -20,10 +20,10 @@ import { Link } from "react-router-dom";
 
 export default function StateManagement() {
   return (
-    <div className="max-w-6xl mx-auto space-y-8 pb-12">
+    <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8 pb-8 sm:pb-12">
       {/* Header */}
       <div className="space-y-4">
-        <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-android-green to-android-blue bg-clip-text text-transparent">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-android-green to-android-blue bg-clip-text text-transparent leading-tight">
           State管理完全ガイド
         </h1>
         <div className="flex flex-wrap gap-2">
